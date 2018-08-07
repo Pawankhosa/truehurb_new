@@ -1,0 +1,359 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="User.master.cs" Inherits="User_User" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<!-- Mirrored from themes.potenzaglobalsolutions.com/html/seohub-seo-marketing-social-media-multipurpose-html5-template/error-404.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 05:55:46 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template" />
+    <meta name="author" content="potenzaglobalsolutions.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1">
+    <title>True Herb India</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+
+
+    <!-- mega menu -->
+    <link rel="stylesheet" type="text/css" href="../css/mega-menu/mega_menu.css" />
+
+    <!-- font awesome -->
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+
+    <!-- Themify icons -->
+    <link rel="stylesheet" type="text/css" href="../css/themify-icons.css" />
+
+    <!-- main style -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+    <!-- Responsive style -->
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+
+    <!-- Style customizer -->
+    <link rel="stylesheet" href="#" data-style="styles">
+    <link rel="stylesheet" type="text/css" href="../css/style-customizer.css" />
+
+
+
+</head>
+
+<body>
+    <form runat="server">
+        <!--=================================
+      loading -->
+
+        <div id="loading">
+            <div id="loading-center">
+                <img src="images/loader.gif" alt="">
+            </div>
+        </div>
+
+        <!--=================================
+      loading -->
+
+        <!--=================================
+        header -->
+        <header id="header" class="default">
+            <div class="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="topbar-left text-left">
+                                <ul class="list-inline">
+                                    <li><i class="ti-location-pin"></i>Moga</li>
+                                    <li><i class="ti-headphone-alt"></i>+91 99889-21424</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8">
+                            <div class="topbar-right text-right">
+                                <ul class="list-inline">
+
+                                    <li>
+                                        <asp:Label ID="lblname" runat="server" Text=""></asp:Label></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnklogin" OnClick="lnklogin_Click" runat="server">Login</asp:LinkButton>
+                                        <asp:LinkButton ID="lnklogout" OnClick="lnklogout_Click" runat="server" Visible="false">Logout</asp:LinkButton>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--=================================
+    mega menu -->
+
+            <div class="menu">
+                <!-- menu start -->
+                <nav id="menu" class="mega-menu">
+                    <!-- menu list items container -->
+                    <section class="menu-list-items">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <!-- menu logo -->
+                                    <ul class="menu-logo col-md-3">
+                                        <li>
+                                            <a href="Dashboard.aspx">
+                                                <img id="logo_img" src="../images/true.png" alt="logo">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- menu links -->
+                                    <ul class="menu-links col-md-9">
+
+                                        <li class="active"><a href="javascript:void(0)">Pins <i class="fa fa-angle-down fa-indicator"></i></a>
+                                            <!-- drop down multilevel  -->
+                                            <ul class="drop-down-multilevel">
+                                                <li class="active"><a href="AvailablePins.aspx">Avaliable Pins </a></li>
+                                                <li><a href="Expiredpins.aspx">Expired Pins</a></li>
+                                                <li><a href="TransferPins.aspx">Transfer Pins</a></li>
+                                                <li><a href="Tranferlogs.aspx">Transfer Logs</a></li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="javascript:void(0)">Downline <i class="fa fa-angle-down fa-indicator"></i></a>
+                                            <!-- drop down multilevel  -->
+                                            <ul class="drop-down-multilevel">
+                                                <li class="active"><a href="Sponsers.aspx">My Direct</a></li>
+                                                <li><a href="Tree.aspx">Tree</a></li>
+
+
+                                            </ul>
+                                        </li>
+                                        <li><a href="javascript:void(0)">Wallets <i class="fa fa-angle-down fa-indicator"></i></a>
+                                            <!-- drop down multilevel  -->
+                                            <ul class="drop-down-multilevel">
+                                                <li class="active"><a href="ewallet.aspx">Pair Wallet</a></li>
+                                                <li><a href="Rewards.aspx">Reward Wallet</a></li>
+                                                <li><a href="RewardLevel.aspx">Reward Level</a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li id="pnlstock" runat="server" visible="false"><a href="javascript:void(0)">Products <i class="fa fa-angle-down fa-indicator"></i></a>
+                                            <ul class="drop-down-multilevel">
+                                                 <li><a href="Stock.aspx">Stock</a></li>
+                                                <li><a href="Saleproduct.aspx">Sale</a></li>
+                                                 <li><a href="salehistory.aspx">Sale History</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- active class -->
+
+                                        <%-- <li><a href="installments.aspx">My Installments </a></li>
+                                    <li ><a href="javascript:void(0)"> Dues <i class="fa fa-angle-down fa-indicator"></i></a>
+                                        <!-- drop down multilevel  -->
+                                        <ul class="drop-down-multilevel">
+                                            <li class="active"><a href="duepinshistory.aspx">Due Pins</a></li>
+                                            <li><a href="Structure.aspx">Pay dues</a></li>
+                                         
+                                            
+                                        </ul>
+                                    </li>--%>
+                                        <li><a href="Profile.aspx">Profile</a></li>
+                                        <li><a href="Change-Password.aspx">Change Password</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </nav>
+                <!-- menu end -->
+            </div>
+        </header>
+        <!--=================================
+search and side menu content -->
+        <div class="search-overlay"></div>
+        <div class="menu-overlay"></div>
+        <div id="search" class="search">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <input type="search" placeholder="Type and hit enter...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="side-content" id="scrollbar">
+            <div class="side-content-info">
+                <div class="menu-toggle-hamburger menu-close"><span class="ti-close"></span></div>
+                <div class="side-logo">
+                    <img class="img-responsive mb-30" src="images/logo-dark.png" alt="">
+                    <p>Culpa molestias mollitia natus labore perspiciatis ipsa lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit aut explicabo mollitia, sed, eos, magni quos laborum dolores ab distinctio voluptates quae ipsam.</p>
+                    <hr class="mt-20 mb-30" />
+                </div>
+                <div class="contact-address">
+                    <div class="address-title mb-30">
+                        <h4 class="mb-15">Office 01</h4>
+                        <p>mollitia omnis fuga, nihil suscipit lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit quos.</p>
+                    </div>
+                    <div class="contact-box mb-20">
+                        <div class="contact-icon">
+                            <i class="ti-direction-alt text-blue"></i>
+                        </div>
+                        <div class="contact-info">
+                            <div class="text-left">
+                                <h6>25, King St. 20170</h6>
+                                <span>Melbourne Australia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-box mb-20">
+                        <div class="contact-icon">
+                            <i class="ti-headphone-alt text-blue"></i>
+                        </div>
+                        <div class="contact-info">
+                            <div class="text-left">
+                                <h6>0011 234 56789</h6>
+                                <span>Mon-Fri 8:30am-6:30pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-box mb-20">
+                        <div class="contact-icon">
+                            <i class="ti-email text-blue"></i>
+                        </div>
+                        <div class="contact-info">
+                            <div class="text-left">
+                                <h6>info@yoursite.com</h6>
+                                <span>24 X 7 online support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="side-content-image">
+                <img class="img-responsive center-block" src="images/bg-element/04.png" alt="">
+            </div>
+        </div>
+        <!--=================================
+search and side menu content -->
+        <!--=================================
+header -->
+        <!--=================================
+intro-title -->
+        <section class="intro-title black-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 text-left">
+                        <div class="intro-content">
+                            <div class="intro-name">
+                                <%-- <h3 class="text-white">Error 404</h3>
+                            <ul class="breadcrumb mt-10">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item text-white">Pages</li>
+                                <li class="breadcrumb-item active">Error 404</li>
+                            </ul>--%>
+                                <asp:ContentPlaceHolder ID="cptitle" runat="server"></asp:ContentPlaceHolder>
+                            </div>
+                            <div class="intro-img">
+                                <img class="img-responsive" src="images/breadcrumb/02.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--=================================
+intro-title -->
+        <!--=================================
+page-section -->
+        <section class="page-section-ptb clearfix">
+            <div class="container">
+
+                <div style="width: 100%">
+                    <asp:ContentPlaceHolder ID="cpmain" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+        </section>
+        <!--=================================
+page-section -->
+        <!--=================================
+footer -->
+        <footer class="footer footer-topbar page-section-pt">
+
+            <div class="copyright mt-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                            <ul class="list-inline text-left">
+                                <li>Powered By: <a href="http://www.officialsolutions.in">Official Solutions </a>&nbsp;&nbsp;&nbsp;|</li>
+
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="text-right">
+                                <p>Copyright © 2017 Yours Need. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--=================================
+footer -->
+        <!--=================================
+ color customizer -->
+
+
+
+        <!--=================================
+ color customizer -->
+
+
+        <!--=================================
+back to top -->
+        <div class="back-to-top">
+            <span>
+                <img src="images/rocket.png" data-src="images/rocket.png" data-hover="images/rocket.gif" alt=""></span>
+        </div>
+        <!--=================================
+back to top -->
+        <!-- jquery  -->
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+        <!-- bootstrap -->
+        <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+        <!-- mega-menu -->
+        <script type="text/javascript" src="../js/mega-menu/mega_menu.js"></script>
+
+        <!-- style customizer  -->
+        <%--<script type="text/javascript" src="../js/style-customizer.js"></script>
+        --%>
+        <!-- custom -->
+        <script type="text/javascript" src="../js/custom.js"></script>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#example2').DataTable();
+            });
+        </script>
+        <asp:ContentPlaceHolder ID="cpfotter" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+
+
+<!-- Mirrored from themes.potenzaglobalsolutions.com/html/seohub-seo-marketing-social-media-multipurpose-html5-template/error-404.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 05:55:48 GMT -->
+</html>

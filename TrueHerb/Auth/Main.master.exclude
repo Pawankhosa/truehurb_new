@@ -1,0 +1,302 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Auth_Main" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Admin Panel</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
+
+  <!-- Custom styling plus plugins -->
+  <link href="css/custom.css" rel="stylesheet">
+  <link href="css/icheck/flat/green.css" rel="stylesheet">
+
+
+  <script src="js/jquery.min.js"></script>
+
+  <!--[if lt IE 9]>
+        <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+        <![endif]-->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <asp:ContentPlaceHolder ID="cphead" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+
+<body class="nav-md" >
+    <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+  <div class="container body">
+
+
+    <div class="main_container">
+
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Official Solutions!</span></a>
+          </div>
+          <div class="clearfix"></div>
+
+
+          <!-- menu prile quick info -->
+          <div class="profile">
+            <div class="profile_pic">
+              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>Welcome,</span>
+              <h2>Yours Need</h2>
+            </div>
+          </div>
+          <!-- /menu prile quick info -->
+
+          <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+            <div class="menu_section">
+              <h3>General</h3>
+              <ul class="nav side-menu">
+                <li><a href="Default.aspx"><i class="fa fa-home"></i> Home </a>
+                  
+                </li>
+                
+                <li><a href="LastJoining.aspx"><i class="fa fa-edit"></i> Check Last Joining </a>
+                  
+                </li>
+                  <li><a href="Createpins.aspx"><i class="fa fa-edit"></i> Create and Allot Pins </a>
+                  
+                </li>
+                <li><a href="CreateDuePins.aspx"><i class="fa fa-desktop"></i> Create Due Pins </a>
+                  
+                </li>
+                 <li><a href="ChangeSponser.aspx"><i class="fa fa-desktop"></i> Change Sponsor </a>
+                  
+                </li>
+                  <li><a href="GetSponser.aspx"><i class="fa fa-desktop"></i> Get Sponser </a>
+                  
+                </li>
+                  <li><a href="Tree.aspx"><i class="fa fa-desktop"></i> Check Tree </a>
+                  
+                </li>
+                  <li><a href="Profile-List.aspx"><i class="fa fa-desktop"></i> Profile </a>
+                  
+                </li>
+                   <li><a href="ChangeUserPassword.aspx"><i class="fa fa-desktop"></i> Change USer Password </a>
+                  
+                </li>
+                   <li><a href="sendpassword.aspx"><i class="fa fa-desktop"></i> Resend Password SMS </a>
+                  
+                </li>
+                  
+                  <li><a><i class="fa fa-edit"></i>Installments <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                         <li><a href="AddInstallments.aspx"><i class="fa fa-table"></i> Add Installments</a></li>
+                           <li><a href="ViewInstallments.aspx"><i class="fa fa-bar-chart-o"></i> View Installments </a></li>
+                          
+                      </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i>TreeViewer List <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                         <li><a href="TreeViewer.aspx"><i class="fa fa-table"></i> TreeViewer</a></li>
+                           <li><a href="ViewTreeViewer.aspx"><i class="fa fa-bar-chart-o"></i> TreeViewer List</a></li>
+                          
+                      </ul>
+                  </li>
+                 <li><a href="Achiever.aspx"><i class="fa fa-bar-chart-o"></i> Check Rewards </a>
+                  
+                </li>
+                  
+                  <li><a href="View-Structure.aspx"><i class="fa fa-bar-chart-o"></i> Create Structure </a>
+                  
+                </li>
+                 <li><a href="unusedpinstatus.aspx"><i class="fa fa-bar-chart-o"></i> Unused Pins Status </a>
+                 
+                 </li>
+                 <li><a href="UsedPins.aspx"><i class="fa fa-bar-chart-o"></i> Used Pins Status </a></li>
+               
+                 
+                  
+                   <li><a href="payout.aspx"><i class="fa fa-bar-chart-o"></i>Payout </a>
+                  
+                </li>
+                  <li><a href="Serachpins.aspx"><i class="fa fa-bar-chart-o"></i> Delete Pins</a>
+                  
+                </li>
+                  <li><a href="Deleteid.aspx"><i class="fa fa-bar-chart-o"></i> Delete User</a>
+                  
+                </li>
+                  <li><a><i class="fa fa-edit"></i>Website <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                         <li><a href="front-achiever.aspx"><i class="fa fa-table"></i> Add Achiever</a></li>
+                           <li><a href="listfrontachiever.aspx"><i class="fa fa-bar-chart-o"></i> View Achiever </a></li>
+                         <li><a href="News.aspx"><i class="fa fa-table"></i> Add News</a></li>
+                           <li><a href="viewnews.aspx"><i class="fa fa-bar-chart-o"></i> View News </a></li> 
+                      </ul>
+                  </li>
+              </ul>
+            </div>
+            
+
+          </div>
+          <!-- /sidebar menu -->
+
+          <!-- /menu footer buttons -->
+          <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- /menu footer buttons -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <div class="top_nav">
+
+        <div class="nav_menu">
+          <nav class="" role="navigation">
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="">
+                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <img src="images/img.jpg" alt="">Marwaha
+                  <span class=" fa fa-angle-down"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                  
+                  <li>
+<%--                      <asp:LinkButton ID="LinkButton1" OnClick="LinkButton1_Click" runat="server"><i class="fa fa-sign-out pull-right"></i> Log Out</asp:LinkButton>--%>
+                      
+                  </li>
+                </ul>
+              </li>
+
+             
+
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+      <!-- /top navigation -->
+
+      <!-- page content -->
+      <div class="right_col" role="main">
+
+        <div class="">
+          <div class="page-title">
+            <div class="title_left">
+              <h3>
+                   Yours Need Multi Trading
+                </h3>
+                <hr />
+            </div>
+
+            
+          </div>
+          <div class="clearfix"></div>
+
+          <div class="row">
+            
+              <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>
+                  <asp:ContentPlaceHolder ID="cptitle" runat="server"></asp:ContentPlaceHolder>
+              </h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                  <section class="form-horizontal form-label-left" novalidate>
+
+                    <asp:ContentPlaceHolder ID="cpmain" runat="server"></asp:ContentPlaceHolder>
+                  </section>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer content -->
+        <footer>
+          <div class="copyright-info">
+            <p class="pull-right">Support Contact Us : <a href="#">+91-9780551900</a>  
+            </p>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+
+      </div>
+      <!-- /page content -->
+    </div>
+
+  </div>
+
+  <div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
+    <div class="clearfix"></div>
+    <div id="notif-group" class="tabbed_notifications"></div>
+  </div>
+
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- bootstrap progress js -->
+  <script src="js/progressbar/bootstrap-progressbar.min.js"></script>
+<%--  <script src="js/nicescroll/jquery.nicescroll.min.js"></script>--%>
+  <!-- icheck -->
+  <script src="js/icheck/icheck.min.js"></script>
+  <!-- pace -->
+  <script src="js/pace/pace.min.js"></script>
+  <script src="js/custom.js"></script>
+  <!-- form validation -->
+  <script src="js/validator/validator.js"></script>
+  
+        <asp:ContentPlaceHolder ID="cpfotter" runat="server"></asp:ContentPlaceHolder>
+        </form>
+</body>
+
+</html>
