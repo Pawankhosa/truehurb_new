@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class User_salehistory : System.Web.UI.Page
+public partial class Auth_PurchaseReport : System.Web.UI.Page
 {
     SQLHelper objsql = new SQLHelper();
     DataTable dt = new DataTable();
@@ -14,17 +14,16 @@ public partial class User_salehistory : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-                bind();
+            bind();
         }
     }
     protected void bind()
     {
-        dt = objsql.GetTable("select s.purchaseid,s.date,s.regno,s.qty,s.sellerregno,p.name,p.Dp,p.Pv from singleorder s join tblproducts p on p.id=s.item and s.sellerregno='" + Session["user"] + "' order by s.purchaseid desc");
+        dt = objsql.GetTable("select s.purchaseid,s.date,s.regno,s.qty,s.sellerregno,p.name,p.Dp,p.Pv from singleorder s join tblproducts p on p.id=s.item order by s.purchaseid desc");
         if (dt.Rows.Count > 0)
         {
             gvpins.DataSource = dt;
             gvpins.DataBind();
         }
     }
-  
 }

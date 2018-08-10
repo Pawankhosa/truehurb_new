@@ -112,7 +112,16 @@ public partial class User_RewardLevel : System.Web.UI.Page
         if (e.CommandName == "submit")
         {
             Label pins = (Label)e.Item.FindControl("lblpins");
-            if ((Convert.ToInt32(pins.Text)) >= (Convert.ToInt32(lblleft.Text)) && (Convert.ToInt32(pins.Text) >= (Convert.ToInt32(lblright.Text))))
+            string pin = pins.Text;
+            if(pin == "2:1")
+            {
+                pin = "1";
+            }
+            else
+            {
+               
+            }
+            if ((Convert.ToInt32(pin)) >= (Convert.ToInt32(lblleft.Text)) && (Convert.ToInt32(pin) >= (Convert.ToInt32(lblright.Text))))
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Pair are not sufficient')", true);
             }
