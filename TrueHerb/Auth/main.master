@@ -48,8 +48,8 @@
                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><span class="icon mdi mdi-apps"></span></a>
                                 <ul class="dropdown-menu be-connections">
                                     <li>
-
-                                        <div class="footer">@Html.ActionLink("Logout", "Login", "Accounts")</div>
+                                         
+                                        <div class="footer"> <asp:LinkButton ID="lnklogout" OnClick="lnklogout_Click" runat="server">Logout</asp:LinkButton></div>
                                     </li>
                                 </ul>
                             </li>
@@ -65,7 +65,7 @@
                             <div class="left-sidebar-content">
                                 <ul class="sidebar-elements">
                                     <li class="divider">Menu</li>
-                                    <li><a href="Order.aspx"><i class="fa fa-edit"></i>Free Member</a></li>
+                                    <li style="display:none;"><a href="Order.aspx"><i class="fa fa-edit"></i>Free Member</a></li>
 
 
                                     <li class="parent">
@@ -75,7 +75,7 @@
                                             <li><a href="view-products.aspx"><i class="fa fa-bar-chart-o"></i>View Products </a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="Push-Member.aspx"><i class="fa fa-edit"></i>Manage Sale</a></li>
+                                    <li style="display:none;"><a href="Push-Member.aspx"><i class="fa fa-edit"></i>Manage Sale</a></li>
                                     <li class="parent">
                                         <a href="#"><span>Manage Assigned Stock</span></a>
                                         <ul class="sub-menu">

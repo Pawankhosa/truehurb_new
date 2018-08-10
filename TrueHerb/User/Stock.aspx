@@ -12,7 +12,7 @@
    
              <asp:BoundField DataField="name" HeaderText="Product Name" />
             <asp:BoundField DataField="code" HeaderText="Code" />
-            <asp:BoundField DataField="regno" HeaderText="RegNo." />
+            <asp:BoundField DataField="regno" HeaderText="RegNo." Visible="false" />
             <asp:BoundField DataField="stock" HeaderText="Stock" />
             <asp:TemplateField HeaderText="Date" >
                 <ItemTemplate>

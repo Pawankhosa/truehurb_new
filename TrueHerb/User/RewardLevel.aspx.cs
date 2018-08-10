@@ -10,9 +10,11 @@ public partial class User_RewardLevel : System.Web.UI.Page
 {
     SQLHelper objsql = new SQLHelper();
     DataTable dt = new DataTable();
+    public static string reg,total;
     public static int totalpurchase = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
+        reg = Session["user"].ToString();
         if (!IsPostBack)
         {
             bind();
@@ -20,17 +22,17 @@ public partial class User_RewardLevel : System.Web.UI.Page
     }
     protected void bind()
     {
-        string chk = Common.Get(objsql.GetSingleValue("select regno from tblmasterorder where regno='" + Session["user"] + "'"));
-        if(chk=="")
-        {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please puchase first')", true);
-        }
-      //  int check = Convert.ToInt32(Common.Get(objsql.GetSingleValue("select regno from tblmasterorder where regno='" + Session["user"] + "'")));
-        else
-        {
-            totalpurchase = Convert.ToInt32(Common.Get(objsql.GetSingleValue("select sum(amount) from tblmasterorder where regno='" + Session["user"] + "'")));
+        //string chk = Common.Get(objsql.GetSingleValue("select regno from tblmasterorder where regno='" + reg + "'"));
+        //if (chk == "")
+        //{
+        //  //  ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please puchase first')", true);
+        //}
+        ////  int check = Convert.ToInt32(Common.Get(objsql.GetSingleValue("select regno from tblmasterorder where regno='" + Session["user"] + "'")));
+        //else
+        //{
+            total = Common.Get(objsql.GetSingleValue("select sum(amount) from tblmasterorder where regno='" + reg + "'")).ToString(); ;
 
-            dt = objsql.GetTable("select * from legs where regno='" + Session["user"] + "'");
+            dt = objsql.GetTable("select * from legs where regno='" + reg + "'");
             if (dt.Rows.Count > 0)
             {
                 lblleft.Text = dt.Rows[0]["leftleg"].ToString();
@@ -42,7 +44,7 @@ public partial class User_RewardLevel : System.Web.UI.Page
                 gvpins.DataSource = dt;
                 gvpins.DataBind();
             }
-        }
+        //}
 
     }
 
@@ -72,7 +74,7 @@ public partial class User_RewardLevel : System.Web.UI.Page
             }
             if (level.Text == "Purchase")
             {
-                string check = Common.Get(objsql.GetSingleValue("select rewardname from tblrewardincome where regno='" + Session["user"] + "' and rewardname='" + id.Value + "'"));
+                string check = Common.Get(objsql.GetSingleValue("select rewardname from tblrewardincome where regno='" + reg + "' and rewardname='" + id.Value + "'"));
                 if (check != "")
                 {
                     rbtn.Text = "Reward Done";
@@ -106,17 +108,22 @@ public partial class User_RewardLevel : System.Web.UI.Page
     {
         //string id = (sender as LinkButton).CommandArgument;
         string id = e.CommandArgument.ToString();
+        string chk = Common.Get(objsql.GetSingleValue("select regno from tblmasterorder where regno='" + reg + "'"));
         if (e.CommandName == "submit")
         {
             Label pins = (Label)e.Item.FindControl("lblpins");
-
             if ((Convert.ToInt32(pins.Text)) >= (Convert.ToInt32(lblleft.Text)) && (Convert.ToInt32(pins.Text) >= (Convert.ToInt32(lblright.Text))))
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Pair are not sufficient')", true);
             }
-            else
+          
+            else if (chk == "")
             {
-                objsql.ExecuteNonQuery("insert into tblrewardincome (regno,rewardname,rewardincome) values ('" + Session["user"] + "','" + id + "','0')");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Puchase is not sufficient')", true);
+            }
+            else
+            { 
+                objsql.ExecuteNonQuery("insert into tblrewardincome (regno,rewardname,rewardincome) values ('" + reg + "','" + id + "','0')");
                 bind();
             }
         }

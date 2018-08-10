@@ -112,7 +112,7 @@
                                     </ul>
                                     <!-- menu links -->
                                     <ul class="menu-links col-md-9">
-
+                                           <li><a href="../Default.aspx">Home</a></li>
                                         <li class="active"><a href="javascript:void(0)">Pins <i class="fa fa-angle-down fa-indicator"></i></a>
                                             <!-- drop down multilevel  -->
                                             <ul class="drop-down-multilevel">
@@ -296,7 +296,7 @@ footer -->
                         </div>
                         <div class="col-lg-6 col-sm-6">
                             <div class="text-right">
-                                <p>Copyright © 2017 Yours Need. All Rights Reserved.</p>
+                               <p>Copyright © 2018 True Herb India. All Rights Reserved.</p>
                             </div>
                         </div>
                     </div>
@@ -354,6 +354,4 @@ back to top -->
     </form>
 </body>
 
-
-<!-- Mirrored from themes.potenzaglobalsolutions.com/html/seohub-seo-marketing-social-media-multipurpose-html5-template/error-404.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 05:55:48 GMT -->
 </html>

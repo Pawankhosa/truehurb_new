@@ -21,8 +21,7 @@
                     <th>Pair</th>
                     <th>Rewards</th> 
                     <th>Sale</th> 
-                   
-                     <th>Purchase</th>
+                    <th>Purchase</th>
                     <th>Reward Level</th>
                     
                 </tr>

@@ -4,7 +4,7 @@
     Rewards
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpmain" Runat="Server">
-        <asp:Panel ID="pnllist" runat="server" Visible="false">
+        <asp:Panel ID="pnllist" runat="server">
 
    
      <div class="col-md-12">
