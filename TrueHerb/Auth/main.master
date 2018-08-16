@@ -76,7 +76,7 @@
                                         </ul>
                                     </li>
                                     <li style="display:none;"><a href="Push-Member.aspx"><i class="fa fa-edit"></i>Manage Sale</a></li>
-                                    <li ><a href="PurchaseReport.aspx"><i class="fa fa-edit"></i>Purchase Report</a></li>
+                                    <li style="display:none;"><a href="PurchaseReport.aspx"><i class="fa fa-edit"></i>Purchase Report</a></li>
                                     <li class="parent">
                                         <a href="#"><span>Manage Assigned Stock</span></a>
                                         <ul class="sub-menu">

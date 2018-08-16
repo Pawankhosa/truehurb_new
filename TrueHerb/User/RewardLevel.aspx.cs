@@ -22,29 +22,30 @@ public partial class User_RewardLevel : System.Web.UI.Page
     }
     protected void bind()
     {
-        //string chk = Common.Get(objsql.GetSingleValue("select regno from tblmasterorder where regno='" + reg + "'"));
-        //if (chk == "")
-        //{
-        //  //  ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please puchase first')", true);
-        //}
-        ////  int check = Convert.ToInt32(Common.Get(objsql.GetSingleValue("select regno from tblmasterorder where regno='" + Session["user"] + "'")));
-        //else
-        //{
-            total = Common.Get(objsql.GetSingleValue("select sum(amount) from tblmasterorder where regno='" + reg + "'")).ToString(); ;
+        string chk = Common.Get(objsql.GetSingleValue("select regno from tblmasterorder where regno='" + reg + "'"));
+        if (chk == "")
+        {
+            //  ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please puchase first')", true);
+        }
+        //  int check = Convert.ToInt32(Common.Get(objsql.GetSingleValue("select regno from tblmasterorder where regno='" + Session["user"] + "'")));
+        else
+        {
+            totalpurchase =Convert.ToInt32(Common.Get(objsql.GetSingleValue("select sum(amount) from tblmasterorder where regno='" + reg + "'"))) ;
 
-            dt = objsql.GetTable("select * from legs where regno='" + reg + "'");
-            if (dt.Rows.Count > 0)
-            {
-                lblleft.Text = dt.Rows[0]["leftleg"].ToString();
-                lblright.Text = dt.Rows[0]["rightleg"].ToString();
-            }
-            dt = objsql.GetTable("select * from tblrewarddetails");
-            if (dt.Rows.Count > 0)
-            {
-                gvpins.DataSource = dt;
-                gvpins.DataBind();
-            }
-        //}
+           
+        }
+        dt = objsql.GetTable("select * from legs where regno='" + reg + "'");
+        if (dt.Rows.Count > 0)
+        {
+            lblleft.Text = dt.Rows[0]["leftleg"].ToString();
+            lblright.Text = dt.Rows[0]["rightleg"].ToString();
+        }
+        dt = objsql.GetTable("select * from tblrewarddetails");
+        if (dt.Rows.Count > 0)
+        {
+            gvpins.DataSource = dt;
+            gvpins.DataBind();
+        }
 
     }
 
