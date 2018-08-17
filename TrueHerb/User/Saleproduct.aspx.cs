@@ -11,11 +11,11 @@ using System.Web.UI.WebControls;
 public partial class User_Saleproduct : System.Web.UI.Page
 {
     SQLHelper objsql = new SQLHelper();
-    public static DataTable MyDT = new DataTable();
+    public DataTable MyDT = new DataTable();
     DataRow MyRow;
     string constring = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
     int id = 0, total = 0, qty2 = 0, pvpr = 0;
-    public static string invoice = "", check = "", code = "";
+    public static string invoice = "", check = "", code = "",user;
     public static int cnt = 0;
     Common cm = new Common();
     protected void Page_Load(object sender, EventArgs e)
@@ -25,13 +25,14 @@ public partial class User_Saleproduct : System.Web.UI.Page
             if (cnt==0)
             {
                 Session["DataTable"] = "";
+                
                 invoice = cm.Generatepass();
             }
             else
             {
-             
+              
             }
-          
+            user = Session["user"].ToString();
         }
     }
 
@@ -44,8 +45,12 @@ public partial class User_Saleproduct : System.Web.UI.Page
             conn.ConnectionString = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "select name from tblproducts where " +
-                "name like @SearchText + '%'";
+               
+             
+                //"select name from tblproducts where " +
+                //  "name like @SearchText + '%'";
+                cmd.CommandText = "select p.name from tblproducts p join tblAssignstock assign on p.code=assign.code and assign.regno='"+ user + "' and " +
+                "p.name like @SearchText + '%'";
                 cmd.Parameters.AddWithValue("@SearchText", prefixText);
                 cmd.Connection = conn;
                 conn.Open();
@@ -60,6 +65,7 @@ public partial class User_Saleproduct : System.Web.UI.Page
                 conn.Close();
                 return customers;
             }
+            
         }
     }
     protected void bindtotal()
@@ -74,6 +80,7 @@ public partial class User_Saleproduct : System.Web.UI.Page
             pvpr += Convert.ToInt32(pvtot.Text);
             lblpvtotal.Text = pvpr.ToString();
         }
+        
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -188,6 +195,7 @@ public partial class User_Saleproduct : System.Web.UI.Page
            
             else
             {
+                MyDT = (DataTable)Session["DataTable"];
                 string pccode=null;
                 foreach(DataRow dtr in MyDT.Rows)
                 {
@@ -213,7 +221,7 @@ public partial class User_Saleproduct : System.Web.UI.Page
                 }
                 else
                 {
-                    //MyDT = (DataTable)Session["DataTable"];
+                    MyDT = (DataTable)Session["DataTable"];
                     MyRow = MyDT.NewRow();
 
                     MyRow[0] = MyDT.Rows.Count + 1;
@@ -238,6 +246,7 @@ public partial class User_Saleproduct : System.Web.UI.Page
             Button1.Visible = true;
             txtname.Text = "";
             txtqty.Text = "";
+
         }
         else
         {
