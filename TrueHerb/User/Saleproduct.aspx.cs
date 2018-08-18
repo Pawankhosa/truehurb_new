@@ -18,6 +18,8 @@ public partial class User_Saleproduct : System.Web.UI.Page
     public static string invoice = "", check = "", code = "",user;
     public static int cnt = 0;
     Common cm = new Common();
+    public static string date = "";
+    private static TimeZoneInfo INDIAN_ZONE;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -34,6 +36,7 @@ public partial class User_Saleproduct : System.Web.UI.Page
             }
             user = Session["user"].ToString();
         }
+     
     }
 
     [System.Web.Script.Services.ScriptMethod()]
@@ -85,15 +88,17 @@ public partial class User_Saleproduct : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-
-        objsql.ExecuteNonQuery("insert into tblmasterorder(purchaseid,regno,amount,sellerregno,status,Date) values('" + invoice + "','" + txtregno.Text + "','" + lbltotal.Text + "','" + Session["user"] + "','1','" + System.DateTime.Now.ToString("MM/dd/yyyy") + "')");
+        INDIAN_ZONE = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+        DateTime indianTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, INDIAN_ZONE);
+        date = indianTime.ToString("MM/dd/yyyy");
+        objsql.ExecuteNonQuery("insert into tblmasterorder(purchaseid,regno,amount,sellerregno,status,Date) values('" + invoice + "','" + txtregno.Text + "','" + lbltotal.Text + "','" + Session["user"] + "','1','" + date + "')");
 
         foreach (GridViewRow gr in GridView1.Rows)
         {
             HiddenField item = (HiddenField)gr.FindControl("hfid");
             HiddenField qty = (HiddenField)gr.FindControl("qty");
 
-            objsql.ExecuteNonQuery("insert into singleorder(purchaseid,date,regno,item,qty,sellerregno) values('" + invoice + "','" + System.DateTime.Now.ToString("MM/dd/yyyy") + "','" + txtregno.Text + "','" + item.Value + "','" + qty.Value + "','" + Session["user"] + "')");
+            objsql.ExecuteNonQuery("insert into singleorder(purchaseid,date,regno,item,qty,sellerregno) values('" + invoice + "','" + date + "','" + txtregno.Text + "','" + item.Value + "','" + qty.Value + "','" + Session["user"] + "')");
 
             string stock = Common.Get(objsql.GetSingleValue("select stock from tblAssignstock where code ='" + code + "' and regno='" + Session["user"] + "'"));
             string dedqty = ((Convert.ToInt32(stock)) - (Convert.ToInt32(qty.Value))).ToString();
