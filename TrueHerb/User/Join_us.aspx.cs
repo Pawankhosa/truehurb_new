@@ -353,8 +353,10 @@ public partial class User_Join_us : System.Web.UI.Page
                         ts.Dispose();
                         if (txtphn.Text != "")
                         {
-                            string message = "Dear "+txtname.Text+". Welcome to True Herb India. Your ID is ("+newregno+") and Password is ("+pass+"). Thanks for Joining Us. For More Detail visit www.TrueHerb1313.com.";
-                            string result = apicall("http://bulksms.antisoftindia.com/api/sendhttp.php?authkey=5040A9l5MkNR5a485965&mobiles=" + txtphn.Text + "&message=" + message + "&sender=THerbs" + "&route=4 ");
+                            string message = "Dear "+txtname.Text+". Welcome to True Herb India. Your ID is ("+newregno+") and Password is ("+pass+"). Thanks for Joining Us. For More Detail visit www.TrueHerb1313.com";
+                         //   string result = apicall("http://bulksms.antisoftindia.com/api/sendhttp.php?authkey=5040A9l5MkNR5a485965&mobiles=" + txtphn.Text + "&message=" + message + "&sender=THerbs" + "&route=4 ");
+                            string result = apicall("http://sms.officialsms.in/sendSMS?username=TrueHerb&message=" + message + "&sendername=TUHERB&smstype=TRANS&numbers=" + txtphn.Text + "&apikey=ee04a007-060f-4504-b132-752d08fdfcf2");
+                            
                         }
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Thank You For Registration ')", true);
                         Response.Redirect("welcome.aspx?id=" + newregno + "&pass=" + pass + "&name=" + txtname.Text);
@@ -383,7 +385,7 @@ public partial class User_Join_us : System.Web.UI.Page
     }
     protected string dob()
     {
-        return ddlmonth.SelectedItem.Text + "/" + ddlday.SelectedItem.Text + "/" + ddlyear.SelectedItem.Text;
+        return ddlmonth.SelectedItem.Text + "/" + ddlday.SelectedItem.Text + "/" + ddlyear.Text;
     }
 
     protected void txtsponserid_TextChanged(object sender, EventArgs e)

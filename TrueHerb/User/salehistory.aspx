@@ -19,7 +19,8 @@
                     <th>Quantity</th>
                     <th>Dp</th>
                     <th>Pv</th>
-                    <th>Buyer</th>
+                    <th>Buyer ID</th>
+                    <th>Buyer Name</th>
                 </tr>
             </thead>
             <asp:ListView ID="gvpins" runat="server">
@@ -30,7 +31,6 @@
                         <td>
                             <asp:Label ID="lbldate" runat="server" Text='<%# Convert.ToDateTime(Eval("date")).ToString("dd/MM/yyyy") %>'></asp:Label>
                         </td>
-
                         <td>
                             <%#Eval("name") %></td>
                         <td>
@@ -41,8 +41,8 @@
                             <%#Eval("pv") %></td>
                         <td>
                             <%#Eval("regno") %></td>
-
-
+                        <td>
+                            <%#Eval("fname") %></td>
 
                 </ItemTemplate>
             </asp:ListView>

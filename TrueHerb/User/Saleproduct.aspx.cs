@@ -12,7 +12,7 @@ public partial class User_Saleproduct : System.Web.UI.Page
 {
     SQLHelper objsql = new SQLHelper();
     public DataTable MyDT = new DataTable();
-    public DataTable MyTABLE = new DataTable();
+  
     DataRow MyRow;
     string constring = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
     int id = 0, total = 0, qty2 = 0, pvpr = 0;
@@ -133,14 +133,22 @@ public partial class User_Saleproduct : System.Web.UI.Page
         //    }
 
         //}
-        Response.Redirect("salehistory.aspx");
+        Response.Redirect("salehistory.aspx?Success="+"true");
 
     }
 
     protected void txtregno_TextChanged(object sender, EventArgs e)
     {
         lblname.Text = Common.Get(objsql.GetSingleValue("select fname from usersnew where regno='" + txtregno.Text + "'"));
-        cnt = 0;
+        if (lblname.Text == "")
+        {
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('Please enter valid ID');", true);
+            txtregno.Text = "";
+        }
+        else
+        {
+            cnt = 0;
+        }
     }
 
     //public void checkqty()
@@ -157,34 +165,43 @@ public partial class User_Saleproduct : System.Web.UI.Page
     protected void btnsubmit_Click1(object sender, EventArgs e)
     {
         code = Common.Get(objsql.GetSingleValue("select code from tblproducts where name='" + txtname.Text + "'"));
-        check = Common.Get(objsql.GetSingleValue("select stock from tblAssignstock where code='" + code + "' and regno='" + Session["user"].ToString() + "'"));
-        if (cnt != 0)
+        if (code == "")
         {
-            MyTABLE = (DataTable)Session["DataTable"];
-          
-            foreach (DataRow dtrow in MyTABLE.Rows)
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('Please enter valid Product');", true);
+            txtname.Text = "";
+            txtqty.Text = "";
+        }
+        else
+        {
+            check = Common.Get(objsql.GetSingleValue("select stock from tblAssignstock where code='" + code + "' and regno='" + Session["user"].ToString() + "'"));
+            if (cnt != 0)
             {
-                if (code == dtrow["Code"].ToString())
+                DataTable MyTABLE = new DataTable();
+                MyTABLE = (DataTable)Session["DataTable"];
+
+                foreach (DataRow dtrow in MyTABLE.Rows)
                 {
-                    qnnty = ((Convert.ToInt32(dtrow["Quantity"].ToString())) + (Convert.ToInt32(txtqty.Text))).ToString();
+                    if (code == dtrow["Code"].ToString())
+                    {
+                        qnnty = ((Convert.ToInt32(dtrow["Quantity"].ToString())) + (Convert.ToInt32(txtqty.Text))).ToString();
+                    }
                 }
             }
-         }
-        else
-        {
-            qnnty = txtqty.Text;
-        }
-        if (Convert.ToInt32(check) < Convert.ToInt32(qnnty))
-        {
-            txtqty.Text = "";
-            qnnty = "0";
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('Only " + check + " stock is left');", true);
-            // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Only " + check + " stock is left')", true);
-        }
-        else
-        {
-            //if (Convert.ToInt32(check) >= Convert.ToInt32(txtqty.Text))
-            //{
+            else
+            {
+                qnnty = txtqty.Text;
+            }
+            if (Convert.ToInt32(check) < Convert.ToInt32(qnnty))
+            {
+                txtqty.Text = "";
+                qnnty = "0";
+                Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('Only " + check + " stock is left');", true);
+                // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Only " + check + " stock is left')", true);
+            }
+            else
+            {
+                //if (Convert.ToInt32(check) >= Convert.ToInt32(txtqty.Text))
+                //{
 
                 if (cnt == 0)
                 {
@@ -278,9 +295,9 @@ public partial class User_Saleproduct : System.Web.UI.Page
                 Button1.Visible = true;
                 txtname.Text = "";
                 txtqty.Text = "";
-
+                qnnty = "0";
             }
-        
+        }
             //else
             //{
             //    Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('Only " + check + " stock is left');", true);

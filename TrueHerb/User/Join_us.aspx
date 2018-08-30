@@ -68,7 +68,7 @@
               <div class="form-group col-sm-12">
                 <label for="First Name">Applicant Name <span class=" text-danger"> * </span></label>
                
-                <asp:TextBox ID="txtname" class="form-control" placeholder="Applicant Name" runat="server" required></asp:TextBox>
+                <asp:TextBox ID="txtname" CssClass="form-control" placeholder="Applicant Name" runat="server" required></asp:TextBox>
             </div>
             <div class="form-group col-sm-12">
                
@@ -77,14 +77,14 @@
                     <asp:ListItem>D/o</asp:ListItem>
                     <asp:ListItem>W/o</asp:ListItem>
                 </asp:RadioButtonList>
-                <asp:TextBox ID="txtrelation" required class="form-control" placeholder="Relation" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtrelation" required CssClass="form-control" placeholder="Relation" runat="server"></asp:TextBox>
             </div>
             <div class="col-sm-12">
                 <div class="row">
                     <label class="col-sm-12" for="phone">Your birthday </label>
                     <div class="form-group col-sm-4">
                         <div class="selected-box auto-hight">
-                            <asp:DropDownList ID="ddlday" runat="server" class="form-control">
+                            <asp:DropDownList ID="ddlday" runat="server" CssClass="form-control">
 
                                 <asp:ListItem Value="Day">Day</asp:ListItem>
                                 <asp:ListItem Value="1">1</asp:ListItem>
@@ -124,7 +124,7 @@
                     </div>
                     <div class="form-group col-sm-4">
                         <div class="selected-box auto-hight">
-                            <asp:DropDownList ID="ddlmonth" runat="server" class="form-control">
+                            <asp:DropDownList ID="ddlmonth" runat="server" CssClass="form-control">
                                 <asp:ListItem Value="Month">Month</asp:ListItem>
                                 <asp:ListItem Value="1">1</asp:ListItem>
                                 <asp:ListItem Value="2">2</asp:ListItem>
@@ -143,7 +143,8 @@
                     </div>
                     <div class="form-group col-sm-4">
                         <div class="selected-box auto-hight">
-                            <asp:DropDownList ID="ddlyear" runat="server" class="form-control">
+                            <asp:TextBox ID="ddlyear" runat="server" CssClass="form-control"></asp:TextBox>
+                            <%--<asp:DropDownList ID="ddlyear" runat="server" class="form-control">
                                 <asp:ListItem Value="Year">Year</asp:ListItem>
                                 <asp:ListItem Value="1990">1990</asp:ListItem>
                                 <asp:ListItem Value="1991">1991</asp:ListItem>
@@ -171,7 +172,7 @@
                                 <asp:ListItem Value="2014">2014</asp:ListItem>
                                 <asp:ListItem Value="2015">2015</asp:ListItem>
                                 <asp:ListItem Value="2016">2016</asp:ListItem>
-                            </asp:DropDownList>
+                            </asp:DropDownList>--%>
                         </div>
                     </div>
                 </div>

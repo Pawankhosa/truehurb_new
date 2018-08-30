@@ -15,11 +15,15 @@ public partial class User_salehistory : System.Web.UI.Page
         if (!IsPostBack)
         {
                 bind();
+            if(Request.QueryString["Success"]=="true")
+            {
+                Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('Success');", true);
+            }
         }
     }
     protected void bind()
     {
-        dt = objsql.GetTable("select s.purchaseid,s.date,s.regno,s.qty,s.sellerregno,p.name,p.Dp,p.Pv from singleorder s join tblproducts p on p.id=s.item and s.sellerregno='" + Session["user"] + "' order by s.purchaseid desc");
+        dt = objsql.GetTable("select s.purchaseid,s.date,s.regno,s.qty,s.sellerregno,p.name,p.Dp,p.Pv,u.fname from singleorder s join tblproducts p on p.id=s.item join usersnew u on u.regno=s.regno and s.sellerregno='" + Session["user"] + "' order by s.purchaseid desc");
         if (dt.Rows.Count > 0)
         {
             gvpins.DataSource = dt;

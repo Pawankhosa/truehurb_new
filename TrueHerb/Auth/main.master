@@ -105,6 +105,7 @@
                                         <ul class="sub-menu">
                                             <li><a href="payout.aspx"><i class="fa fa-table"></i>Pair Wallet</a></li>
                                             <li><a href="Reward-Wallet.aspx"><i class="fa fa-bar-chart-o"></i>Reward Wallet </a></li>
+                                            <li><a href="Rewards-level.aspx"><i class="fa fa-bar-chart-o"></i>Pay Reward </a></li>
                                         </ul>
                                     </li>
                                    

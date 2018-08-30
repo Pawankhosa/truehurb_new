@@ -28,10 +28,6 @@
                 CompletionInterval="100" EnableCaching="false" CompletionSetCount="10" TargetControlID="txtname">
             </ajaxToolkit:AutoCompleteExtender>
 
-            <%--<autocompleteextender
-                TargetControlID="txtname"
-                ID="AutoCompleteExtender1" runat="server" FirstRowSelected="false">
-            </autocompleteextender>--%>
         </div>
         <div class="form-group col-md-4">
            
